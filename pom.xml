@@ -8,7 +8,7 @@
 
     <groupId>subahan</groupId>
     <artifactId>MyWebApp</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>	 
     <packaging>war</packaging>
 
     <name>MyWebApp</name>
@@ -46,6 +46,12 @@
             </plugin>
         </plugins>
     </build>
+<distributionManagement>
+    <snapshotRepository>
+        <id>nexus-snapshots</id>
+                  <url>http://98.80.201.217:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
 
 </project>
 
