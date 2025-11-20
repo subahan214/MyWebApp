@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>subahan</groupId>
+    <groupId>com.example</groupId>
     <artifactId>MyWebApp</artifactId>
-    <version>1.0.0-SNAPSHOT</version>	 
+    <version>1.0.0</version>
     <packaging>war</packaging>
 
     <name>MyWebApp</name>
@@ -17,6 +16,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+
+        <!-- SonarQube properties -->
+        <sonar.host.url>http://34.228.36.53:9000/</sonar.host.url>
+        <sonar.login>squ_9e36b9c96f589d4cd7acd54700f0f70ae352e61a</sonar.login>
     </properties>
 
     <!-- Optional test dependencies -->
@@ -40,18 +43,31 @@
 
         <plugins>
             <!-- WAR plugin (required for Tomcat deployment) -->
+             <plugin>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>4.0.0.2929</version>
+        </plugin>
+ 
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
             </plugin>
+
+            <!-- SonarQube Maven Plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>4.0.0.2929</version>
+            </plugin>
         </plugins>
     </build>
-<distributionManagement>
-    <snapshotRepository>
-        <id>nexus-snapshots</id>
-                  <url>http://98.80.201.217:8081/repository/maven-snapshots/</url>
-    </snapshotRepository>
-</distributionManagement>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://98.80.201.217:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
-
